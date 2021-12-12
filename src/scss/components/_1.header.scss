@@ -1,0 +1,153 @@
+.header {
+  min-height: 580px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 40px 0 50px;
+
+  &__login {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 16px 24px 16px 60px;
+    position: relative;
+    min-width: 130px;
+    font-size: 14px;
+    @include mon-semi;
+    color: $header-title;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      mask-image: url('../img/icons/user.svg');
+      background-color: $header-title;
+      mask-repeat: no-repeat;
+      mask-size: cover;
+    }
+
+  }
+
+  &__content {
+    max-width: 614px;
+    width: 100%;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-size: calc((100vw - 328px)/(1200 - 328) * (36 - 26) + 26px);
+    color: $header-title;
+    @include rock-bold;
+    line-height: 1.4;
+  }
+
+  &__subtitle {
+    font-size: calc((100vw - 328px)/(1200 - 328) * (18 - 16) + 16px);
+    max-width: 515px;
+    width: 100%;
+    margin-bottom: 24px;
+    color: $title;
+    @include roboto-medium;
+    line-height: 2;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include rmin($r-md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
+
+.nav {
+  @include rmin($r-md) {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 32px;
+  }
+
+  &__list {
+    @include rmin($r-md) {
+      display: flex;
+      margin-left: auto;
+    }
+
+    @include rmin($r-md) {
+      margin-right: 98px;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+
+  &__link {
+    @include mon-medium;
+  }
+}
+
+.logo {
+  max-width: 272px;
+  height: 77px;
+
+  &__img {
+    width: 100%;
+  }
+}
+
+.breadcrumbs {
+  padding-left: 24px;
+  position: relative;
+  display: flex;
+  color: $title;
+  margin-bottom: 32px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 6px;
+    mask-image: url('../img/icons/less-than.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    background-color: $title;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 2px;
+      padding-right: 10px;
+      position: relative;
+
+      &::after {
+        content: "/";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    @include mon-medium;
+    font-size: 12px;
+    line-height: 1.5;
+
+    &--active {
+      opacity: 0.5;
+    }
+  }
+}

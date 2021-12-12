@@ -1,0 +1,83 @@
+.advantages {
+  padding: 96px 0 74px;
+  &__inner{
+    @include rmin($r-md){
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+  &__card{
+    margin-bottom: 50px;
+  }
+}
+
+.advantage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  @include rmin($r-md){
+    width: calc((100% - 53px) / 2);
+  }
+
+  &__title {
+    padding-left: 72px;
+    @include rock-bold;
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    color: $title;
+    text-transform: capitalize;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 56px;
+      height: 56px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+    }
+
+    &--alert {
+      &::before {
+        background-image: url('../img/icons/alert.svg');
+      }
+    }
+
+    &--notification {
+      &::before {
+        background-image: url('../img/icons/hours.svg');
+      }
+
+    }
+
+    &--analyze {
+      &::before {
+        background-image: url('../img/icons/analyze.svg');
+      }
+    }
+
+    &--think {
+      &::before {
+        background-image: url('../img/icons/think.svg');
+      }
+    }
+
+    &--bell {
+      &::before {
+        background-image: url('../img/icons/bell.svg');
+      }
+    }
+
+    &--like {
+      &::before {
+        background-image: url('../img/icons/like.svg');
+      }
+    }
+  }
+}

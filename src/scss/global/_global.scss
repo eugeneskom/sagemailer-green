@@ -1,66 +1,107 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .flex {
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .--just-space {
-	justify-content: space-between;
+  justify-content: space-between;
 }
 
 .--just-center {
-	justify-content: center;
+  justify-content: center;
 }
 
 .--just-end {
-	justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .--align-str {
-	align-items: stretch;
+  align-items: stretch;
 }
 
 .--align-center {
-	align-items: center;
+  align-items: center;
 }
 
 .--align-end {
-	align-items: flex-end;
+  align-items: flex-end;
 }
 
 .--dir-col {
-	flex-direction: column;
+  flex-direction: column;
 }
 
-html {
-	font-size: 16px;
-}
+$t-main: #333945;
+$title: #555A64;
+$header-title: #FFFFFF;
+$btn-bg: #941759;
+$bg-main:#F2FBDD;
+
+
+$r-sm: 576;
+$r-md: 768;
+$r-lg: 992;
+$r-xl: 1200;
+
+
+
+
 
 html,
 body {
-	min-height: 100%;
-	position: relative;
+  min-height: 100%;
+  position: relative;
+  line-height: 2;
+  background-color: $header-title;
 }
 
 body {
-	font-size: 1rem;
+  font-size: 16px;
+  @include roboto-regular;
+  color: $t-main;
 }
 
-ul,
-ol,
-li,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0;
+
+
+.container {
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.btn {
+  background-color: $btn-bg;
+  border-radius: 4px;
+  padding: 16px 24px;
+  @include mon-semi;
+  font-size: 14px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: $header-title;
+}
+
+.section {
+  &__title {
+    font-size: 24px;
+    @include rock-bold;
+    line-height: 1.2;
+    color: $title;
+    text-align: center;
+  }
+  &__subtitle{
+    font-size: 18px;
+    line-height: 1.8;
+  }
+}
+
+.bg-main{
+  background-color: $bg-main;
 }

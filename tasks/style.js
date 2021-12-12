@@ -15,6 +15,10 @@ module.exports = function style() {
 		.pipe(map.init())
 		.pipe(bulk())
 		.pipe(sass({
+			outputStyle: 'expanded'
+		}).on('error', sass.logError))
+    .pipe(dest('build/css/')) // experiment
+    .pipe(sass({
 			outputStyle: 'compressed'
 		}).on('error', sass.logError))
 		.pipe(prefixer({

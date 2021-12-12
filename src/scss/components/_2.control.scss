@@ -1,0 +1,14 @@
+.control{
+  padding: 64px 0 96px;
+  &__title{
+    margin-bottom: 24px;
+  }
+  &__subtitle{
+    margin-bottom: 11px;
+    text-align: center;
+  }
+  &__box{
+    max-height: 660px;
+    height: 100%;
+  }
+}

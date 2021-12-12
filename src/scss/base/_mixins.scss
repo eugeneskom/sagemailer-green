@@ -1,60 +1,97 @@
 @mixin font-face($name, $file, $weight: 400, $style: normal) {
-	@font-face {
-		font-family: "#{$name}";
-		src: local("#{$file}"),
-		url('../fonts/#{$file}.woff2') format('woff2'),
-		url('../fonts/#{$file}.woff') format('woff');
-		font-weight: $weight;
-		font-style: $style;
-		font-display: swap;
-	}
+  @font-face {
+    font-family: "#{$name}";
+    src: local("#{$file}"),
+    url('../fonts/#{$file}.woff2') format('woff2'),
+    url('../fonts/#{$file}.woff') format('woff');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+@mixin mon-medium {
+  font-family: Montserrat-Medium, sans-serif;
+  font-weight: 500;
+}
+
+@mixin mon-semi {
+  font-family: Montserrat-Semibold, sans-serif;
+  font-weight: 600;
+}
+
+@mixin roboto-regular {
+  font-family: Roboto-Regular, sans-serif;
+  font-weight: 400;
+}
+
+@mixin roboto-medium {
+  font-family: Roboto-Medium, sans-serif;
+  font-weight: 500;
+}
+
+@mixin rock-bold {
+  font-family: rockb, sans-serif;
+  font-weight: 700;
 }
 
 @mixin bg ($size:"contain", $position: "center") {
-	background-size: #{$size};
-	background-position: #{$position};
-	background-repeat: no-repeat;
+  background-size: #{$size};
+  background-position: #{$position};
+  background-repeat: no-repeat;
 }
 
 @mixin btn_anim($scaleMax:1.05, $scaleMin:0.95) {
-	transform-origin: center center;
-	transition: all ease-out 240ms;
+  transform-origin: center center;
+  transition: all ease-out 240ms;
 
-	&:hover {
-		transform: scale(#{$scaleMax});
-	}
+  &:hover {
+    transform: scale(#{$scaleMax});
+  }
 
-	&:focus {
-		outline: transparent;
-	}
+  &:focus {
+    outline: transparent;
+  }
 
-	&:focus-visible {
-		transform: scale(#{$scaleMax}) translateY(-5%);
-	}
+  &:focus-visible {
+    transform: scale(#{$scaleMax}) translateY(-5%);
+  }
 
-	&:active {
-		transform: scale(#{$scaleMin});
-	}
+  &:active {
+    transform: scale(#{$scaleMin});
+  }
 }
 
 @mixin no-btn ($display:"inline-block") {
-	padding: 0;
-	margin: 0;
-	border: 0;
-	background-color: transparent;
-	border-radius: 0;
-	cursor: pointer;
-	appearance: none;
-	display: #{$display};
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  border-radius: 0;
+  cursor: pointer;
+  appearance: none;
+  display: #{$display};
 }
 
 @mixin transit ($tr:0.24) {
-	transition: all #{$tr}s;
+  transition: all #{$tr}s;
 }
 
 @mixin container($max-width:"120rem", $padding:"2rem") {
-	width: 100%;
-	max-width: #{$max-width};
-	padding: 0 #{$padding};
-	margin: 0 auto;
+  width: 100%;
+  max-width: #{$max-width};
+  padding: 0 #{$padding};
+  margin: 0 auto;
+}
+
+@mixin r($width) {
+  @media only screen and (max-width: $width+ "px") {
+    @content;
+  }
+}
+
+@mixin rmin($width) {
+  @media only screen and (min-width: $width+ "px") {
+    @content;
+  }
 }

@@ -99,6 +99,18 @@ a {
   box-sizing: border-box;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .flex {
   display: flex;
   align-items: flex-start;
@@ -163,8 +175,8 @@ body {
   font-weight: 600;
   font-size: 14px;
   line-height: 1.2;
-  text-transform: uppercase;
   color: #FFFFFF;
+  display: inline-block;
 }
 
 .section__title {
@@ -373,6 +385,10 @@ a {
     flex-direction: row;
     justify-content: space-between;
   }
+}
+
+.header__btn {
+  text-transform: uppercase;
 }
 
 @media only screen and (min-width: 768px) {
@@ -597,6 +613,70 @@ a {
   margin-bottom: 15px;
 }
 
+.footer {
+  padding: 40px 0 88px;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__title {
+  text-align: center;
+  max-width: 780px;
+  line-height: 1.2;
+  margin-bottom: 53px;
+  align-self: center;
+}
+
+.footer__list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.footer__item {
+  padding-top: 84px;
+  position: relative;
+  max-width: 158px;
+  text-align: center;
+}
+
+.footer__item:not(:last-child) {
+  margin-right: 32px;
+}
+
+.footer__item::before {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  background-color: #941759;
+}
+
+.footer__item--clock::before {
+  mask-image: url(../img/icons/footer/clock.svg);
+}
+
+.footer__item--card::before {
+  mask-image: url(../img/icons/footer/card.svg);
+}
+
+.footer__item--support::before {
+  mask-image: url(../img/icons/footer/support.svg);
+}
+
+.footer__btn {
+  text-transform: capitalize;
+  align-self: center;
+}
+
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat-Medium"), url("../fonts/Montserrat-Medium.woff2") format("woff2"), url("../fonts/Montserrat-Medium.woff") format("woff");
@@ -641,6 +721,18 @@ a {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .flex {
@@ -707,8 +799,8 @@ body {
   font-weight: 600;
   font-size: 14px;
   line-height: 1.2;
-  text-transform: uppercase;
   color: #FFFFFF;
+  display: inline-block;
 }
 
 .section__title {

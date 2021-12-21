@@ -1,12 +1,12 @@
-.footer{
+.footer {
   padding: 40px 0 88px;
 
-  &__inner{
+  &__inner {
     display: flex;
     flex-direction: column;
   }
 
-  &__title{
+  &__title {
     text-align: center;
     max-width: 780px;
     line-height: 1.2;
@@ -14,23 +14,29 @@
     align-self: center;
   }
 
-  &__list{
+  &__list {
     display: flex;
     justify-content: center;
     margin-bottom: 36px;
+
+    @include r($r-sm) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
-  &__item{
+
+  &__item {
     padding-top: 84px;
     position: relative;
     max-width: 158px;
     text-align: center;
 
-    &:not(:last-child){
+    &:not(:last-child) {
       margin-right: 32px;
     }
 
-    &::before{
-      content:"";
+    &::before {
+      content: "";
       position: absolute;
       width: 64px;
       height: 64px;
@@ -42,25 +48,27 @@
       background-color: $btn-bg;
     }
 
-    &--clock{
-      &::before{
+    &--clock {
+      &::before {
         mask-image: url(../img/icons/footer/clock.svg);
       }
     }
-    &--card{
-      &::before{
+
+    &--card {
+      &::before {
         mask-image: url(../img/icons/footer/card.svg);
       }
     }
-    &--support{
-      &::before{
+
+    &--support {
+      &::before {
         mask-image: url(../img/icons/footer/support.svg);
       }
     }
 
   }
 
-  &__btn{
+  &__btn {
     text-transform: capitalize;
     align-self: center;
   }

@@ -198,14 +198,6 @@ body {
 }
 
 @font-face {
-  font-family: "Montserrat-Medium";
-  src: local("Montserrat-Medium"), url("../fonts/Montserrat-Medium.woff2") format("woff2"), url("../fonts/Montserrat-Medium.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Montserrat-SemiBold";
   src: local("Montserrat-SemiBold"), url("../fonts/Montserrat-SemiBold.woff2") format("woff2"), url("../fonts/Montserrat-SemiBold.woff") format("woff");
   font-weight: 400;
@@ -216,6 +208,14 @@ body {
 @font-face {
   font-family: "OpenSans-Bold";
   src: local("OpenSans-Bold"), url("../fonts/OpenSans-Bold.woff2") format("woff2"), url("../fonts/OpenSans-Bold.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat-Medium";
+  src: local("Montserrat-Medium"), url("../fonts/Montserrat-Medium.woff2") format("woff2"), url("../fonts/Montserrat-Medium.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -323,6 +323,12 @@ a {
   padding: 40px 0 50px;
 }
 
+@media only screen and (max-width: 768px) {
+  .header .container:first-child {
+    padding: 0;
+  }
+}
+
 .header__login {
   display: inline-block;
   background: rgba(255, 255, 255, 0.1);
@@ -348,6 +354,21 @@ a {
   background-color: #FFFFFF;
   mask-repeat: no-repeat;
   mask-size: cover;
+}
+
+@media only screen and (max-width: 768px) {
+  .header__login::before {
+    background-color: #81A332;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header__login {
+    background: linear-gradient(135deg, rgba(160, 202, 63, 0.1) 0%, rgba(123, 156, 48, 0.1) 100%);
+    color: #81A332;
+    margin-bottom: 48px;
+    margin-top: 24px;
+  }
 }
 
 .header__content {
@@ -396,13 +417,114 @@ a {
     display: flex;
     align-items: flex-end;
     margin-bottom: 32px;
+    justify-content: space-between;
   }
+}
+
+@media only screen and (max-width: 768px) {
+  .nav {
+    position: relative;
+  }
+}
+
+.nav__mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav__mobile {
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+}
+
+.nav__toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.nav__line {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #000;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav__line {
+    display: none;
+  }
+}
+
+.nav__line::before, .nav__line::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+.nav__line::before {
+  top: 8px;
+}
+
+.nav__line::after {
+  bottom: 8px;
+}
+
+.nav__line--active {
+  background-color: transparent;
+}
+
+.nav__line--active::before {
+  transform: rotate(45deg);
+  top: 50%;
+}
+
+.nav__line--active::after {
+  transform: rotate(-45deg);
+  top: 50%;
+}
+
+.nav__links {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 3px;
+  max-height: 0px;
+  transition: max-height 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav__links {
+    background-color: #F2FBDD;
+    flex-direction: column;
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    top: 100%;
+    z-index: 1;
+    padding: 0 15px;
+  }
+}
+
+.nav__links--active {
+  max-height: 750px;
 }
 
 @media only screen and (min-width: 768px) {
   .nav__list {
     display: flex;
-    margin-left: auto;
   }
 }
 
@@ -412,8 +534,20 @@ a {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .nav__item {
+    text-align: right;
+  }
+}
+
 .nav__item:not(:last-child) {
   margin-right: 24px;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav__item:not(:last-child) {
+    margin-right: 0px;
+  }
 }
 
 .nav__link {
@@ -427,7 +561,7 @@ a {
 }
 
 .logo__img {
-  width: 100%;
+  max-width: 100%;
 }
 
 .breadcrumbs {
@@ -634,6 +768,13 @@ a {
   display: flex;
   justify-content: center;
   margin-bottom: 36px;
+}
+
+@media only screen and (max-width: 576px) {
+  .footer__list {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .footer__item {
